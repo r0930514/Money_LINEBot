@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@line/bot-sdk": "^7.4.0",
+    "express": "^4.17.2",
+    "google-spreadsheet": "^3.2.0"
+  }
+}
