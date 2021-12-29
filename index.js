@@ -3,10 +3,7 @@ const linebot = require('@line/bot-sdk');
 const {GoogleSpreadsheet} = require('google-spreadsheet');
 const express = require('express');
 const { response } = require('express');
-const config = {
-    channelSecret: '',
-    channelAccessToken: ''
-};
+const config = require('./Token');
 const client = new linebot.Client(config);
 const app = express(); 
 
