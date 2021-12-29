@@ -30,6 +30,6 @@ function handleEvent(event){
 
 const port = 3000;
 app.listen(port, () =>{
-    console.log(`listen on ${port}`);
+    console.log(`正在${port}監視`);
     
 })
