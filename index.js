@@ -10,7 +10,7 @@ if(process.env.channelId == undefined){
     const rawdata = fs.readFileSync('Token.json');
     config = JSON.parse(rawdata);
 }else{
-    let config = {
+    config = {
         "channelId" : process.env.channelId ,
         "channelSecret" : process.env.channelSecret,
         "channelAccessToken" : process.env.channelAccessToken
