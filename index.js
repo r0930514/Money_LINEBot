@@ -3,9 +3,12 @@ const express = require('express');
 const fs = require('fs');
 const app = express(); 
 
-//json parse 
-const rawdata = fs.readFileSync('Token.json');
-const config = JSON.parse(rawdata);
+//env vars 
+const config = {
+    "channelId" : process.env.channelId,
+    "channelSecret" : process.env.channelSecret,
+    "channelAccessToken" : process.env.channelAccessToken
+};
 
 //create a bot
 const client = new linebot.Client(config);
@@ -33,7 +36,7 @@ function handleEvent(event){
     return;
 }
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () =>{
     console.log(`正在${port}監視`);
 })
