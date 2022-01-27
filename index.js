@@ -1,11 +1,15 @@
-'use strict';
 const linebot = require('@line/bot-sdk');
-const {GoogleSpreadsheet} = require('google-spreadsheet');
 const express = require('express');
-const { response } = require('express');
-const config = require('./Token');
-const client = new linebot.Client(config);
+const fs = require('fs');
 const app = express(); 
+
+//json parse 
+const rawdata = fs.readFileSync('Token.json');
+const config = JSON.parse(rawdata);
+
+//create a bot
+const client = new linebot.Client(config);
+
 
 app.post('/callback', linebot.middleware(config), (req, res)=>{
     Promise
@@ -19,11 +23,12 @@ app.post('/callback', linebot.middleware(config), (req, res)=>{
 
 
 function handleEvent(event){
+    console.log(event);
     if(event.type !== 'message' || event.message.type !== 'text'){
         return Promise.resolve(null);
     }
 
-    const echo = {type: 'text', text: "早安" };
+    const echo = {type: 'text', text: event.message.text };
     client.replyMessage(event.replyToken, echo);
     return;
 }
@@ -31,5 +36,4 @@ function handleEvent(event){
 const port = 3000;
 app.listen(port, () =>{
     console.log(`正在${port}監視`);
-    
 })
