@@ -67,7 +67,7 @@ app.get('/test', (req, res)=>{
     res.send(date.getNowDate())  
 })
 
-//behavior
+//當事件被觸發的動作
 function handleEvent(event){
     if(event.type !== 'message' || event.message.type !== 'text'){
         return null;
