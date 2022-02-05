@@ -1,8 +1,6 @@
 {
     "channelSecret": "",
     "channelAccessToken": "",
-    "註解": "請將LINE Bot Developer 網站的資訊填寫",
-    "註解2": "以下為ClearDB資料庫的登入資訊",
     "host" : "",
     "user" : "",
     "password" : "",
