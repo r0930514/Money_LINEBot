@@ -1,8 +1,10 @@
+//匯入函式庫
 const linebot = require('@line/bot-sdk');
 const express = require('express');
 const fs = require('fs');
-const mysql = require('mysql')
+const mysql = require('mysql');
 const database = require('./lib/database');
+const date = require('./lib/time');
 
 //local test or env vars
 var config = [];
@@ -29,10 +31,10 @@ const app = express();
 
 //database init
 const connection = mysql.createPool({
-    host : 'us-cdbr-east-05.cleardb.net',
-    user : 'baee9dc10602da',
-    password : '71937b50',
-    database : 'heroku_ae03ac8b1add904' ,
+    host : config.host,
+    user : config.user,
+    password : config.password,
+    database : config.database ,
     charset : 'utf8mb4'
 }); 
 connection.on('error', (err)=>{
@@ -52,7 +54,6 @@ app.post('/callback', linebot.middleware(config), (req, res)=>{
 app.get('/',(req,res)=>{
 	//res.send("<h1>早安<h1/>");
     database.searchall(connection,(result)=>{
-        console.log(result)
         var sendData=``;
         for(i=0;i<result.length;i++){
             sendData+=`<p>${result[i]['id']} ${result[i]['name']}<p/>`
@@ -60,6 +61,11 @@ app.get('/',(req,res)=>{
         res.send(sendData);
     });
 });
+
+//測試用
+app.get('/test', (req, res)=>{
+    res.send(date.getNowDate())  
+})
 
 //behavior
 function handleEvent(event){
