@@ -22,12 +22,14 @@ if(process.env.channelId == undefined){
         "database" : process.env.database 
     };
 }
+
+
 //create a bot
 const client = new linebot.Client(config);
 
 //define express app
 const app = express(); 
-
+app.use('/static', express.static(__dirname+'/website'))
 
 //database init
 const connection = mysql.createPool({
@@ -50,21 +52,21 @@ app.post('/callback', linebot.middleware(config), (req, res)=>{
     res.sendStatus(200);
 })
 
+//data
+app.get('/api/data', (req, res)=>{
+    database.searchall(connection,(result)=>{
+        res.json(result);
+    });
+})
+
 //管理界面
 app.get('/',(req,res)=>{
-	//res.send("<h1>早安<h1/>");
-    database.searchall(connection,(result)=>{
-        var sendData=``;
-        for(i=0;i<result.length;i++){
-            sendData+=`<p>${result[i]['id']} ${result[i]['name']}<p/>`
-        }
-        res.send(sendData);
-    });
+	res.sendFile(__dirname+'/website/index.html')
 });
 
 //測試用
 app.get('/test', (req, res)=>{
-    res.send(date.getNowDate())  
+    res.sendFile(__dirname+'/website/index.html');
 })
 
 //當事件被觸發的動作
