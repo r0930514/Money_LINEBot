@@ -1,4 +1,5 @@
 async function action(){
+    console.log('q')
     let webHtml = document.getElementById('list')
     webHtml.innerHTML=`
         <div class="spinner-border" role="status">
@@ -24,9 +25,9 @@ async function action(){
     for(i in response.data){
         temphtml+=`
         <tr>
-            <th scope="row">${response.data[i]['id']}</th>
+            <th scope="row">${(response.data[i]['id']-4)/10+1}</th>
             <td>${response.data[i]['name']}</td>
-            <td>${response.data[i]['date']}</td>
+            <td>${response.data[i]['date'].substr(0,10)}</td>
             <td>${response.data[i]['price']}</td>
             <td>
                 <div class="dropdown">
@@ -51,6 +52,9 @@ async function action(){
     webHtml.innerHTML=temphtml
 }
 async function removeitem(id){
-    console.log(id);
+    console.log(id)
+    let response = await axios.get(`/api/data/remove/${id}`)
+    console.log("a")
+    await action();
 }
         

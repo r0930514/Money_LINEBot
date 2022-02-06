@@ -58,6 +58,12 @@ app.get('/api/data', (req, res)=>{
         res.json(result);
     });
 })
+app.get('/api/data/remove/:id', (req,res)=>{
+    database.removeitem(req.params.id, connection,(result)=>{
+        console.log(result)
+    })
+    res.sendStatus(200);
+})
 
 //管理界面
 app.get('/',(req,res)=>{
