@@ -53,7 +53,7 @@ app.post('/callback', linebot.middleware(config), (req, res)=>{
     res.sendStatus(200);
 })
 
-//data api
+//data api (restful api)
 app.get('/api/data', (req, res)=>{
     database.searchall(connection,(result)=>{
         res.json(result);
@@ -65,12 +65,18 @@ app.delete('/api/data/:id', (req,res)=>{
     })
     res.sendStatus(200);
 })
-app.post('/api/data', (req, res)=>{
-    database.additem(req.body, connection, (err, result)=>{
+app.post('/api/data', async(req, res)=>{
+    result = await database.additem(req.body, connection)
+    res.sendStatus(200); 
+    
+})
+//data api (other action)
+app.delete('/api/data/other/all', (req, res)=>{
+    database.clearing(connection, (err, result)=>{
         console.log(err)
     })
     res.sendStatus(200);
-})
+})//刪除所有資料
 
 //管理界面
 app.get('/',(req,res)=>{

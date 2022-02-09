@@ -1,4 +1,5 @@
 async function refresh(){
+    console.log('refresh')
     document.getElementById("Input1").value = '';
     document.getElementById("Input2").value = getNowTime();
     document.getElementById("Input3").value = '';
@@ -55,11 +56,15 @@ async function refresh(){
     webHtml.innerHTML=temphtml
 }
 async function removeitem(id){
-    await axios.delete(`/api/data/${id}`)
-    action();
+    result = await axios.delete(`/api/data/${id}`)
+    refresh();
+}
+async function removeallitem(){
+    result = await axios.delete(`/api/data/other/all`)
+    refresh();
 }
 async function additem(){
-    await axios.post('/api/data', {
+    result = await axios.post('/api/data', {
         name: document.getElementById("Input1").value,
         date: document.getElementById("Input2").value,
         price: document.getElementById("Input3").value
