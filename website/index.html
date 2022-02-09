@@ -7,16 +7,50 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body onload="action()">
+<body onload="refresh()">
     <div class="container-md pt-5 position-relative">
         <h1>後台管理</h1>
-        <button class="btn btn-dark" onclick="action()">重新整裡</button>
+        <button class="btn btn-dark" onclick="refresh()">重新整裡</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            新增項目
+        </button>
         <div class="mx-auto" style="margin: 20px;">
             <div id="list" class="d-grid gap-3">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
+        </div>
+    </div>
+    
+  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">新增項目</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">項目名稱</label>
+                    <input type="text" class="form-control" id="Input1" placeholder="名稱（不可超過8字）">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">日期</label>
+                    <input type="date" class="form-control" id="Input2">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">金額</label>
+                    <input type="number" class="form-control" id="Input3">
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="additem()">新增</button>
+            </div>
+        </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
