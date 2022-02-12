@@ -1,27 +1,10 @@
 //匯入函式庫
 const linebot = require('@line/bot-sdk');
 const express = require('express');
-const fs = require('fs');
-const mysql = require('mysql');
-const database = require('./lib/database');
+const dataapi = require('./lib/api')
 const date = require('./lib/time');
+const config = require('./lib/config')
 
-//local test or env vars
-var config = [];
-if(process.env.channelId == undefined){
-    const rawdata = fs.readFileSync('Token.json');
-    config = JSON.parse(rawdata);
-}else{
-    config = {
-        "channelId" : process.env.channelId ,
-        "channelSecret" : process.env.channelSecret,
-        "channelAccessToken" : process.env.channelAccessToken,
-        "host" : process.env.host,
-        "user" : process.env.user,
-        "password" : process.env.password,
-        "database" : process.env.database 
-    };
-}
 
 
 //create a bot
@@ -31,19 +14,9 @@ const client = new linebot.Client(config);
 const app = express(); 
 app.use('/static', express.static(__dirname+'/website'))
 app.use(express.json());
+app.use('/api', dataapi)
 
-//database init
-const connection = mysql.createPool({
-    host : config.host,
-    user : config.user,
-    password : config.password,
-    database : config.database ,
-    charset : 'utf8mb4'
-}); 
-connection.on('error', (err)=>{
-    console.log(err.code)
-    connection.connect();
-})
+
 
 //監聽webhook事件並執行相關動作
 app.post('/callback', linebot.middleware(config), (req, res)=>{
@@ -53,26 +26,7 @@ app.post('/callback', linebot.middleware(config), (req, res)=>{
     res.sendStatus(200);
 })
 
-//data api (restful api)
-app.get('/api/data', async(req, res)=>{
-    result = await database.searchall(connection)
-    console.log(result)
-    res.json(result);
-})
-app.delete('/api/data/:id', async(req,res)=>{
-    result = await database.removeitem(req.params.id, connection)
-    res.sendStatus(200);
-})
-app.post('/api/data', async(req, res)=>{
-    result = await database.additem(req.body, connection)
-    res.sendStatus(200); 
-    
-})
-//data api (other action)
-app.delete('/api/data/other/all', async(req, res)=>{
-    result = await database.clearing(connection)
-    res.sendStatus(200);
-})//刪除所有資料
+
 
 //管理界面
 app.get('/',(req,res)=>{
