@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2500"
+   height="1686"
+   viewBox="0 0 661.45832 446.08751"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="LINE_Menu.svg"
+   inkscape:export-filename="/home/sindy0514/文件/Project/web/Nodejs_LINEBot/LINE_Menu.png"
+   inkscape:export-xdpi="30.719999"
+   inkscape:export-ydpi="30.719999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="0.26016034"
+     inkscape:cx="1143.5256"
+     inkscape:cy="561.19238"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="圖層 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#f2f2f2;fill-opacity:1;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1020"
+       width="220.66251"
+       height="223.04375"
+       x="441.32501"
+       y="0"
+       ry="0.19029737" />
+    <path
+       id="primary-44"
+       d="m 582.43012,132.86834 a 42.358948,42.358948 0 0 1 -17.23076,3.64114 45.282023,45.282023 0 0 1 -44.30767,-46.153814 45.282023,45.282023 0 0 1 44.30767,-46.153821 42.358948,42.358948 0 0 1 17.23076,3.64094 46.153818,46.153818 0 0 0 -27.07691,42.512881 46.153818,46.153818 0 0 0 27.07691,42.512674 z"
+       style="fill:#3771c8;stroke:#5f8dd3;stroke-width:7.6923;stroke-linecap:round;stroke-linejoin:round" />
+    <rect
+       style="fill:#f2f2f2;fill-opacity:1;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1060"
+       width="220.39792"
+       height="223.04375"
+       x="220.66251"
+       y="223.04375"
+       ry="0.19029737" />
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1058"
+       width="220.39792"
+       height="223.04375"
+       x="0"
+       y="223.04375"
+       ry="0.19029737" />
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1000"
+       width="220.39792"
+       height="223.04375"
+       x="220.66251"
+       y="0"
+       ry="0.19029737" />
+    <path
+       id="primary-4"
+       d="M 330.86146,64.714575 V 44.201821 m 18.15375,27.999904 14.46164,-14.461444 m -6.97449,32.615385 h 20.51295 m -28.0001,18.153744 14.46164,14.46164 m -32.61539,-6.97449 v 20.51295 m -18.15394,-28.0001 -14.46144,14.46164 m 6.97429,-32.615384 h -20.51275 m 27.9999,-18.153941 -14.46144,-14.461444 m 32.61538,6.974294 a 25.641026,25.641026 0 1 0 25.6409,25.641091 25.641026,25.641026 0 0 0 -25.6409,-25.641091 z"
+       style="fill:#d40000;stroke:#ff5555;stroke-width:7.69231;stroke-linecap:round;stroke-linejoin:round" />
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1062"
+       width="220.66251"
+       height="223.04375"
+       x="441.32501"
+       y="223.04375"
+       ry="0.19029737" />
+    <g
+       id="g64606"
+       transform="matrix(0.80000003,0,0,0.80000003,91.8654,54.936511)"
+       style="stroke:#ff00cc">
+      <path
+         id="primary-76"
+         d="m 595.25132,327.94334 h 12.82055 a 7.6923103,7.6923103 0 0 0 7.69241,-7.69241 v 0 a 7.6923103,7.6923103 0 0 0 -7.69241,-7.69221 h -5.12814 a 7.6923103,7.6923103 0 0 1 -7.69241,-7.69241 v 0 a 7.6923103,7.6923103 0 0 1 7.69241,-7.69221 h 12.82055"
+         style="fill:none;stroke:#ff00cc;stroke-width:7.69231;stroke-linecap:round;stroke-linejoin:round" />
+      <path
+         id="primary-2-4"
+         data-name="primary"
+         d="m 584.99504,276.66134 h -46.15387 a 5.1282068,5.1282068 0 0 0 -5.12833,5.12814 v 87.17958 l 12.0001,-5.12833 11.94874,5.12833 11.94873,-5.12833 11.94874,5.12833 11.94855,-5.12833 12.0001,5.12833 v -15.38462"
+         style="fill:none;stroke:#ff00cc;stroke-width:7.69231;stroke-linecap:round;stroke-linejoin:round" />
+      <path
+         id="primary-3"
+         data-name="primary"
+         d="m 605.5078,297.1741 v -5.12814 m 0,41.02552 v -5.12814 m -30.76924,10.25648 h -20.51277 m 20.51277,-20.51296 h -20.51277"
+         style="fill:none;stroke:#ff00cc;stroke-width:7.69231;stroke-linecap:round;stroke-linejoin:round" />
+    </g>
+    <g
+       id="g836">
+      <rect
+         style="fill:#f2f2f2;stroke:#999999;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect846"
+         width="220.39792"
+         height="223.04375"
+         x="0"
+         y="0"
+         ry="0.19029737" />
+      <path
+         id="primary"
+         d="m 130.71171,90.355196 a 20.512819,20.512819 0 1 1 -20.51275,-20.512942 20.512819,20.512819 0 0 1 20.51275,20.512942 z m -20.51275,-46.15383 v 5.128135 m 32.61538,8.410318 -3.58977,3.589584 m 17.12824,29.025793 h -5.12815 m -8.41032,32.615374 -3.58977,-3.58977 m -29.02561,17.12823 v -5.12834 m -32.615395,-8.41012 3.589774,-3.58977 M 64.045112,90.355196 h 5.128135 m 8.410318,-32.615377 3.589774,3.589584"
+         style="fill:#ff9955;stroke:#ff7f2a;stroke-width:7.6923;stroke-linecap:round;stroke-linejoin:round" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="81.954834"
+       y="189.63853"
+       id="text4068"><tspan
+         sodipodi:role="line"
+         id="tspan4066"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#ff7f2a;fill-opacity:1;stroke-width:0.584991"
+         x="81.954834"
+         y="189.63853">早餐</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="302.61734"
+       y="189.63853"
+       id="text17521"><tspan
+         sodipodi:role="line"
+         id="tspan17519"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#ff5555;fill-opacity:1;stroke-width:0.584991"
+         x="302.61734"
+         y="189.63853">中餐</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#5f8dd3;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="523.41211"
+       y="189.63853"
+       id="text17525"><tspan
+         sodipodi:role="line"
+         id="tspan17523"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';fill:#5f8dd3;fill-opacity:1;stroke-width:0.584991"
+         x="523.41211"
+         y="189.63853">晚餐</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#ff5555;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="110.03443"
+       y="411.88831"
+       id="text30011"><tspan
+         sodipodi:role="line"
+         id="tspan30009"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#ff5555;fill-opacity:1;stroke-width:0.584991"
+         x="110.03443"
+         y="411.88831">刪除前個項目</tspan></text>
+    <path
+       id="primary-8"
+       d="m 77.378296,292.67555 h 65.641324 m -16.41041,0 v -12.30773 a 4.1025768,4.1025768 0 0 0 -4.10252,-4.10252 H 97.891231 a 4.1025768,4.1025768 0 0 0 -4.102525,4.10252 v 12.30773 m 41.025704,53.33361 V 292.67555 H 85.583497 v 53.33361 a 4.1025768,4.1025768 0 0 0 4.102525,4.10252 h 41.025868 a 4.1025768,4.1025768 0 0 0 4.10252,-4.10252 z m -32.82065,-36.9232 v 24.61546 m 16.4104,-24.61546 v 24.61546"
+       style="fill:none;stroke:#ff5555;stroke-width:6.15362;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    <g
+       id="g44894"
+       transform="matrix(0.79999926,0,0,0.79999926,63.13116,69.253725)"
+       style="stroke:#8080ff;stroke-opacity:1">
+      <path
+         id="primary-7"
+         d="m 348.13443,291.44757 a 19.0753,19.0753 0 0 1 0,26.94258 l -26.94238,26.94258 a 19.0753,19.0753 0 0 1 -26.94258,0 v 0 a 19.0753,19.0753 0 0 1 0,-26.94258"
+         style="fill:none;stroke:#8080ff;stroke-width:8.08275;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         id="primary-2"
+         data-name="primary"
+         d="m 375.07701,291.44757 a 19.0753,19.0753 0 0 0 0,-26.94238 v 0 a 19.0753,19.0753 0 0 0 -26.94258,0 l -26.94238,26.94238 a 19.0753,19.0753 0 0 0 0,26.94258 v 0"
+         style="fill:none;stroke:#8080ff;stroke-width:8.08275;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#8080ff;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="332.58902"
+       y="411.88831"
+       id="text44898"><tspan
+         sodipodi:role="line"
+         id="tspan44896"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#8080ff;fill-opacity:1;stroke-width:0.584991"
+         x="332.58902"
+         y="411.88831">管理後台</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;line-height:1.25;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#ff00cc;fill-opacity:1;stroke:none;stroke-width:0.584991"
+       x="551.77966"
+       y="411.88831"
+       id="text64610"><tspan
+         sodipodi:role="line"
+         id="tspan64608"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.0796px;font-family:'Taipei Sans TC Beta';-inkscape-font-specification:'Taipei Sans TC Beta';text-align:center;text-anchor:middle;fill:#ff00cc;fill-opacity:1;stroke-width:0.584991"
+         x="551.77966"
+         y="411.88831">結算</tspan></text>
+  </g>
+</svg>

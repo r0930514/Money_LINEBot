@@ -3,7 +3,7 @@ const linebot = require('@line/bot-sdk');
 const express = require('express');
 const dataapi = require('./lib/api')
 const config = require('./lib/config')
-
+const flex1 = require('./lib/flex_message/flex1')
 //create a bot
 const client = new linebot.Client(config);
 
@@ -34,7 +34,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     const echo = { type: 'text', text: event.message.text };
   
     // use reply API
-    return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, flex1);
   }
 
 
