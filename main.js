@@ -35,7 +35,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     const echo = { type: 'text', text: event.message.text };
     switch(event.message.text){
       case "早餐":
-        await axios.post('/api/data', {
+        await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "早餐",
           date: "2022-02-14",
           price: 50
