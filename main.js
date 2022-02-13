@@ -4,6 +4,7 @@ const express = require('express');
 const dataapi = require('./lib/api')
 const config = require('./lib/config')
 const flex1 = require('./lib/flex_message/flex1')
+const axios = require('axios')
 //create a bot
 const client = new linebot.Client(config);
 
@@ -24,7 +25,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
   });
   
   // event handler
-  function handleEvent(event) {
+  async function handleEvent(event) {
     if (event.type !== 'message' || event.message.type !== 'text') {
       // ignore non-text-message event
       return Promise.resolve(null);
@@ -32,7 +33,14 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
   
     // create a echoing text message
     const echo = { type: 'text', text: event.message.text };
-  
+    switch(event.message.text){
+      case "早餐":
+        await axios.post('/api/data', {
+          name: "早餐",
+          date: "2022-02-14",
+          price: 50
+        })
+    }
     // use reply API
     return client.replyMessage(event.replyToken, flex1);
   }
