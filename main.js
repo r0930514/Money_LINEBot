@@ -5,6 +5,7 @@ const dataapi = require('./lib/api')
 const config = require('./lib/config')
 const flex1 = require('./lib/flex_message/flex1')
 const axios = require('axios')
+const time = require("./lib/time")
 //create a bot
 const client = new linebot.Client(config);
 
@@ -12,6 +13,7 @@ const client = new linebot.Client(config);
 const app = express(); 
 app.use('/static', express.static(__dirname+'/website'))
 app.use('/api', dataapi)
+
 
 //監聽webhook事件並執行相關動作
 app.post('/callback', linebot.middleware(config), (req, res) => {
@@ -37,20 +39,20 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     case "早餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "早餐",
-          date: "2022-02-14",
+          date: time.getNowDate(),
           price: 50
         })
     case "中餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "中餐",
-          date: "2022-02-14",
-          price: 50
+          date: time.getNowDate(),
+          price: 100
         })
     case "晚餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "晚餐",
-          date: "2022-02-14",
-          price: 50
+          date: time.getNowDate(),
+          price: 100
         })   
     }
     // use reply API
