@@ -34,7 +34,6 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     }
   
     // create a echoing text message
-    const echo = { type: 'text', text: event.message.text };
     switch(event.message.text){
     case "早餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
@@ -42,24 +41,28 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
           date: time.getNowDate(),
           price: 50
         })
-        break
+        return client.replyMessage(event.replyToken, flex1)
     case "中餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "中餐",
           date: time.getNowDate(),
           price: 100
         })
-        break
+        return client.replyMessage(event.replyToken, flex1)
     case "晚餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "晚餐",
           date: time.getNowDate(),
           price: 100
         })   
-        break
+        return client.replyMessage(event.replyToken, flex1)
+    default:
+        const echo = { type: 'text', text: "不明" };
+        return client.replyMessage(event.replyToken, flex1)
+
     }
     // use reply API
-    client.replyMessage(event.replyToken, flex1)
+
   }
   
 
