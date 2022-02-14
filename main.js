@@ -60,7 +60,6 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     }
     // use reply API
     client.replyMessage(event.replyToken, flex1)
-    return client.replyMessage(event.replyToken, flex1);
   }
   
 
