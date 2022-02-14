@@ -58,7 +58,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
         return client.replyMessage(event.replyToken, flex1)
     default:
         const echo = { type: 'text', text: "不明" };
-        return client.replyMessage(event.replyToken, flex1)
+        return client.replyMessage(event.replyToken, echo)
 
     }
     // use reply API
