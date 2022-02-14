@@ -34,12 +34,24 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     // create a echoing text message
     const echo = { type: 'text', text: event.message.text };
     switch(event.message.text){
-      case "早餐":
+    case "早餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "早餐",
           date: "2022-02-14",
           price: 50
         })
+    case "中餐":
+        await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
+          name: "中餐",
+          date: "2022-02-14",
+          price: 50
+        })
+    case "晚餐":
+        await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
+          name: "晚餐",
+          date: "2022-02-14",
+          price: 50
+        })   
     }
     // use reply API
     client.replyMessage(event.replyToken, flex1)
