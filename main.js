@@ -59,9 +59,9 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
     case "help":
         echo = {type: 'text', 
         text:
-        `⚪輸入 早/中/晚餐：
+        `⚫輸入 早/中/晚餐：
 即可對應到加入50元/100元/100元的項目
-⚪ 快速新增一個項目：
+⚫快速新增一個項目：
 “價錢”（“新增項目名稱”
 - 範例：
 - 100（吃飯`
