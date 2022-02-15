@@ -32,7 +32,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
       // ignore non-text-message event
       return Promise.resolve(null);
     }
-  
+    let echo = {type: 'text', text: ''} 
     // create a echoing text message
     switch(event.message.text){
     case "早餐":
@@ -57,7 +57,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
         })   
         return client.replyMessage(event.replyToken, flex1)
     case "help":
-        let echo = {type: 'text', text: `
+        echo = {type: 'text', text: `
                 輸入 早/中/晚餐：
                     即可對應到加入50元/100元/100元的項目
                 快速新增一個項目：
@@ -68,7 +68,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
 
             `}
     default:
-        const echo = { type: 'text', text: "不明" };
+        echo = { type: 'text', text: "不明" };
         return client.replyMessage(event.replyToken, echo)
 
     }
