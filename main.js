@@ -66,7 +66,8 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
                         100（吃飯
 
 
-            `}
+        `}
+        return client.replyMessage(event.replyToken, echo)
     default:
         echo = { type: 'text', text: "不明" };
         return client.replyMessage(event.replyToken, echo)
