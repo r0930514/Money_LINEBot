@@ -3,7 +3,7 @@ const linebot = require('@line/bot-sdk');
 const express = require('express');
 const dataapi = require('./lib/api')
 const config = require('./lib/config')
-const flex1 = require('./lib/flex_message/flex1')
+const flexmsg = require('./lib/flex_message/flex1')
 const axios = require('axios')
 const time = require("./lib/time")
 //create a bot
@@ -41,32 +41,33 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
           date: time.getNowDate(),
           price: 50
         })
-        return client.replyMessage(event.replyToken, flex1)
+        return client.replyMessage(event.replyToken, flexmsg)
     case "中餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "中餐",
           date: time.getNowDate(),
           price: 100
         })
-        return client.replyMessage(event.replyToken, flex1)
+        return client.replyMessage(event.replyToken, flexmsg)
     case "晚餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "晚餐",
           date: time.getNowDate(),
           price: 100
         })   
-        return client.replyMessage(event.replyToken, flex1)
+        return client.replyMessage(event.replyToken, flexmsg())
     case "help":
-        echo = {type: 'text', text: `
-                輸入 早/中/晚餐：
-                    即可對應到加入50元/100元/100元的項目
-                快速新增一個項目：
-                    “價錢”（“新增項目名稱”
-                    範例：
-                        100（吃飯
-
-
-        `}
+        echo = {type: 'text', 
+        text:
+        `
+        輸入 早/中/晚餐：
+            即可對應到加入50元/100元/100元的項目
+        快速新增一個項目：
+            “價錢”（“新增項目名稱”
+            - 範例：
+            - 100（吃飯
+        `
+        }
         return client.replyMessage(event.replyToken, echo)
     default:
         echo = { type: 'text', text: "不明" };
