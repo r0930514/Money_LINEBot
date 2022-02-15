@@ -41,7 +41,7 @@ app.post('/callback', linebot.middleware(config), (req, res) => {
           date: time.getNowDate(),
           price: 50
         })
-        return client.replyMessage(event.replyToken, flexmsg())
+        return client.replyMessage(event.replyToken, flexmsg("早餐"))
     case "中餐":
         await axios.post(`http://localhost:${process.env.PORT || 3000}/api/data`, {
           name: "中餐",
