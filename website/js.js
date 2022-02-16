@@ -11,6 +11,13 @@ async function refresh(){
         </div>
     `
     let response = await axios.get('/api/data')
+        .catch(e=>{
+            alert("請重新整理再試一次")
+            webHtml.innerHTML=`
+            <p>${e}<p/>
+            `
+            return
+        })
     var temphtml='';
     temphtml=`
         <table class="table">
