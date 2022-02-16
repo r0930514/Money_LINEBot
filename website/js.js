@@ -81,7 +81,7 @@ async function additem(){
 }
 function getLocalTime(UTCtime){
     let UTCtimeObj = new Date(UTCtime)
-    return UTCtimeObj.toLocaleDateString();
+    return UTCtimeObj.toLocaleDateString('zh-TW');
 }
 function getNowTime(){
     var today = new Date();
