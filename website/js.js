@@ -71,6 +71,7 @@ async function removeallitem(){
     refresh();
 }
 async function additem(){
+    console.log(document.getElementById("Input2").value);
     result = await axios.post('/api/data', {
         name: document.getElementById("Input1").value,
         date: document.getElementById("Input2").value,
