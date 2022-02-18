@@ -35,5 +35,5 @@ app.listen(port, () =>{
 })
 
 //temp
-const { getLocalTime } = require('./lib/time')
-console.log(getLocalTime("2022-02-17T16:00:00.000Z"));
+/* const { getLocalTime } = require('./lib/time')
+console.log(getLocalTime("2022-02-17T16:00:00.000Z")); */
