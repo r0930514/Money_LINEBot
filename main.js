@@ -10,6 +10,8 @@ const app = express();
 app.use('/static', express.static(__dirname+'/website'))
 app.use('/api', dataapi)
 
+
+
 //監聽webhook事件並執行相關動作
 app.post('/callback', linebot.middleware(config), (req, res) => {
     Promise
@@ -31,3 +33,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () =>{
     console.log(`正在${port}監視`);
 })
+
+//temp
+const { getLocalTime } = require('./lib/time')
+console.log(getLocalTime("2022-02-17T16:00:00.000Z"));

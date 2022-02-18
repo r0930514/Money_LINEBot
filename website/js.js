@@ -1,10 +1,8 @@
 async function refresh(){
-    console.log('refresh')
     document.getElementById("Input1").value = '';
-    document.getElementById("Input2").value = getNowTime();
+    document.getElementById("Input2").value = getLocalTime(getNowTime());
     document.getElementById("Input3").value = '';
     let webHtml = document.getElementById('list')
-    let formatter = new Intl.DateTimeFormat('en-US', {timeZone: "America/Denver"})
     webHtml.innerHTML=`
         <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
@@ -18,6 +16,7 @@ async function refresh(){
             `
             return
         })
+    console.log(response)
     var temphtml='';
     temphtml=`
         <table class="table">
@@ -80,10 +79,9 @@ async function additem(){
     refresh();
 }
 function getLocalTime(UTCtime){
-    let UTCtimeObj = new Date(UTCtime)
-    return UTCtimeObj.toLocaleDateString('zh-TW');
+    return luxon.DateTime.fromISO(UTCtime, {zone: 'Asia/Taipei'}).toFormat('yyyy-MM-dd')
 }
 function getNowTime(){
     var today = new Date();
-    return today.toISOString().substring(0,10)
+    return today.toISOString()
 }
