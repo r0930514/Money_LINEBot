@@ -12,7 +12,7 @@
     <div class="container-md pt-5 position-relative">
         <h1>後台管理</h1>
         <button class="btn btn-dark" onclick="refresh()">重新整裡</button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddItemModal">
             新增項目
         </button>
         <button class="btn btn-danger" onclick="removeallitem()">刪除全部</button>
@@ -27,7 +27,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="AddItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -50,6 +50,34 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="additem()">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal(edit) -->
+    <div class="modal fade" id="EditItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">修改項目</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">項目名稱</label>
+                        <input type="text" class="form-control" id="EditInput1" placeholder="名稱（不可超過8字）">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">日期</label>
+                        <input type="date" class="form-control" id="EditInput2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">金額</label>
+                        <input type="number" class="form-control" id="EditInput3">
+                    </div>
+                </div>
+                <div class="modal-footer" id="editbutton">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">修改</button>
                 </div>
             </div>
         </div>

@@ -47,7 +47,7 @@ async function refresh(){
                         <li>
                             <a class="dropdown-item" onclick="removeitem(${response.data[i]['id']})">刪除</a>
                         </li>
-                        <li><a class="dropdown-item" onclick="">修改</a></li>
+                        <li><a class="dropdown-item" onclick="edit(${response.data[i]['id']})" data-bs-toggle="modal" data-bs-target="#EditItemModal">修改</a></li>
                     </ul>
                 </div>   
             <td/>
@@ -78,10 +78,25 @@ async function additem(){
     })
     refresh();
 }
+async function edititem(id){
+    console.log("run");
+    result = await axios.put('/api/data', {
+        id: id,
+        name: document.getElementById("EditInput1").value,
+        date: document.getElementById("EditInput2").value,
+        price: document.getElementById("EditInput3").value
+    })
+    refresh();
+}
 function getLocalTime(UTCtime){
     return luxon.DateTime.fromISO(UTCtime, {zone: 'Asia/Taipei'}).toFormat('yyyy-MM-dd')
 }
 function getNowTime(){
-    var today = new Date();
+    let today = new Date();
     return today.toISOString()
+}
+function edit(id){
+    let el = document.getElementById("editbutton")
+    console.log(el);
+    el.innerHTML = `<button id="editbutton" type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="edititem(${id})">修改</button>`
 }
