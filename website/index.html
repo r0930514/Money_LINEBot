@@ -13,14 +13,29 @@
         <h1>後台管理</h1>
         <button class="btn btn-dark" onclick="refresh()">重新整裡</button>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddItemModal">
-            新增項目
+            新增項目 
         </button>
         <button class="btn btn-danger" onclick="removeallitem()">刪除全部</button>
         <div class="mx-auto" style="margin: 20px;">
             <div id="list" class="d-grid gap-3">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div class="spinner-border" role="status" style="display:none">
+                    <span class="visually-hidden">Loading...</span> 
                 </div>
+                <table class="table" style="display:0">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">項目</th>
+                            <th scope="col">日期</th>
+                            <th scope="col">花費</th>
+                            <th scope="col">動作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                    
+                </table>
             </div>
         </div>
     </div>
@@ -82,6 +97,11 @@
             </div>
         </div>
     </div>
+    <template>
+        <table>
+            
+        </table>
+    </template>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
