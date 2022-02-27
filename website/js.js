@@ -1,73 +1,69 @@
-async function refresh(){
-    document.getElementById("Input1").value = '';
-    document.getElementById("Input2").value = getLocalTime(getNowTime());
-    document.getElementById("Input3").value = '';
-    let webHtml = document.getElementById('list')
-    webHtml.innerHTML=`
-        <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-    `
-    let response = await axios.get('/api/data')
-        .catch(e=>{
-            alert("請重新整理再試一次")
-            webHtml.innerHTML=`
-            <p>${e}<p/>
-            `
-            return
+async function refresh(display = 0){
+    try {
+        if(!display){
+            Swal.fire({
+                title :"載入中",
+                timerProgressBar: true,
+                didOpen: ()=>{
+                    Swal.showLoading()
+                }
+            })
+        }
+        response = await axios.get('/api/data')
+        Swal.close()
+    } catch (e) {
+        Swal.fire({
+            title: '無法重新整裡',
+            text: e,
+            icon: 'error' 
         })
-    console.log(response)
-    var temphtml='';
-    temphtml=`
-        <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">項目</th>
-                <th scope="col">日期</th>
-                <th scope="col">花費</th>
-                <th scope="col">動作</th>
-            </tr>
-        </thead>
-        <tbody>
-    `
-    for(i in response.data){
-        temphtml+=`
-        <tr>
-            <th scope="row">${(response.data[i]['id']-4)/10+1}</th>
-            <td>${response.data[i]['name']}</td>
-            <td>${getLocalTime(response.data[i]['date'])}
-            <td>${response.data[i]['price']}</td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        動作
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" onclick="removeitem(${response.data[i]['id']})">刪除</a>
-                        </li>
-                        <li><a class="dropdown-item" onclick="edit(${response.data[i]['id']})" data-bs-toggle="modal" data-bs-target="#EditItemModal">修改</a></li>
-                    </ul>
-                </div>   
-            <td/>
-        </tr>
-        `;
+        return   
     }
-    temphtml+=`
-        </tbody>
-    </table>
-    `
-    console.log(response.data)
-    webHtml.innerHTML=temphtml
+    let el = document.querySelector('tbody') //選擇頁面的唯一的表格內容
+    el.innerHTML = ''
+    let templateTable = document.querySelector('#templateTable') //選擇範本
+    let templateTableContent = templateTable.content.querySelectorAll('td') //選擇範本表格內的所有子格
+    let templateMenu = templateTable.content.querySelectorAll('a')
+    for(i in response.data){
+        let id = response.data[i]['id']
+        templateTableContent[0].textContent = (id-4)/10+1
+        templateTableContent[1].textContent = response.data[i]['name']
+        templateTableContent[2].textContent = getLocalTime(response.data[i]['date'])
+        templateTableContent[3].textContent = response.data[i]['price']
+        templateMenu[0].id = `Delete_${id}`
+        templateMenu[1].id = `Edit_${id}`
+        el.appendChild(document.importNode(templateTable.content, 1))
+        document.getElementById(`Delete_${id}`).addEventListener('click', ()=>{
+            removeitem(id)
+        })
+        document.getElementById(`Edit_${id}`).addEventListener('click', ()=>{
+            edititem(id)
+        })
+    }
 }
 async function removeitem(id){
-    result = await axios.delete(`/api/data/${id}`)
-    refresh();
+    Swal.fire({
+        title :"載入中",
+        timerProgressBar: true,
+        didOpen: ()=>{
+            Swal.showLoading()
+        }
+    })
+    try {
+        result = await axios.delete(`/api/data/${id}`)    
+    } catch (e) {
+        Swal.fire({
+            title: '無法刪除資料',
+            text: e,
+            icon: 'error'
+        })
+        return
+    }
+    refresh(1);
 }
 async function removeallitem(){
     result = await axios.delete(`/api/data/other/all`)
-    refresh();
+    refresh(1);
 }
 async function additem(){
     console.log(document.getElementById("Input2").value);
@@ -76,7 +72,7 @@ async function additem(){
         date: document.getElementById("Input2").value,
         price: document.getElementById("Input3").value
     })
-    refresh();
+    refresh(1);
 }
 async function edititem(id){
     console.log("run");
@@ -86,7 +82,7 @@ async function edititem(id){
         date: document.getElementById("EditInput2").value,
         price: document.getElementById("EditInput3").value
     })
-    refresh();
+    refresh(1);
 }
 function getLocalTime(UTCtime){
     return luxon.DateTime.fromISO(UTCtime, {zone: 'Asia/Taipei'}).toFormat('yyyy-MM-dd')
@@ -95,8 +91,10 @@ function getNowTime(){
     let today = new Date();
     return today.toISOString()
 }
-function edit(id){
-    let el = document.getElementById("editbutton")
-    console.log(el);
-    el.innerHTML = `<button id="editbutton" type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="edititem(${id})">修改</button>`
-}
+let AddOrEditItemModal = document.getElementById('AddOrEditItemModal')
+AddOrEditItemModal.addEventListener('show.bs.modal', (event)=>{
+    let button = event.relatedTarget
+    let recipient = button.getAttribute('data-bs-whatever')
+    let buttonId = button.getAttribute('id')
+    console.log(recipient + ":" + buttonId)
+})
