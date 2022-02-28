@@ -1,13 +1,16 @@
+function loading(){
+    Swal.fire({
+        title :"載入中",
+        timerProgressBar: true,
+        didOpen: ()=>{
+            Swal.showLoading()
+        }
+    })
+}
 async function refresh(display = 0){
     try {
         if(!display){
-            Swal.fire({
-                title :"載入中",
-                timerProgressBar: true,
-                didOpen: ()=>{
-                    Swal.showLoading()
-                }
-            })
+            loading()
         }
         response = await axios.get('/api/data')
         Swal.close()
@@ -36,19 +39,10 @@ async function refresh(display = 0){
         document.getElementById(`Delete_${id}`).addEventListener('click', ()=>{
             removeitem(id)
         })
-        document.getElementById(`Edit_${id}`).addEventListener('click', ()=>{
-            edititem(id)
-        })
     }
 }
 async function removeitem(id){
-    Swal.fire({
-        title :"載入中",
-        timerProgressBar: true,
-        didOpen: ()=>{
-            Swal.showLoading()
-        }
-    })
+    loading()
     try {
         result = await axios.delete(`/api/data/${id}`)    
     } catch (e) {
@@ -62,39 +56,85 @@ async function removeitem(id){
     refresh(1);
 }
 async function removeallitem(){
-    result = await axios.delete(`/api/data/other/all`)
+    loading()
+    try {
+        result = await axios.delete(`/api/data/other/all`)   
+    } catch (e) {
+        Swal.fire({
+            title: '無法刪除資料',
+            text: e,
+            icon: 'error'
+        })
+        return
+    }
     refresh(1);
 }
 async function additem(){
-    console.log(document.getElementById("Input2").value);
-    result = await axios.post('/api/data', {
-        name: document.getElementById("Input1").value,
-        date: document.getElementById("Input2").value,
-        price: document.getElementById("Input3").value
-    })
+    loading()
+    try {
+        result = await axios.post('/api/data', {
+            name: document.getElementById("Input1").value,
+            date: document.getElementById("Input2").value,
+            price: document.getElementById("Input3").value
+        })
+    }catch (e) {
+        Swal.fire({
+            title: '無法新增資料',
+            text: e,
+            icon: 'error'
+        })
+        return
+    }
     refresh(1);
 }
+
 async function edititem(id){
-    console.log("run");
-    result = await axios.put('/api/data', {
-        id: id,
-        name: document.getElementById("EditInput1").value,
-        date: document.getElementById("EditInput2").value,
-        price: document.getElementById("EditInput3").value
-    })
+    console.log('編輯'+ id)
+    loading()
+    try {
+        result = await axios.put('/api/data', {
+            id: id,
+            name: document.getElementById("Input1").value,
+            date: document.getElementById("Input2").value,
+            price: document.getElementById("Input3").value
+        })
+    }catch (e) {
+        Swal.fire({
+            title: '無法新增資料',
+            text: e,
+            icon: 'error'
+        })
+        return
+    }
     refresh(1);
 }
-function getLocalTime(UTCtime){
-    return luxon.DateTime.fromISO(UTCtime, {zone: 'Asia/Taipei'}).toFormat('yyyy-MM-dd')
-}
-function getNowTime(){
-    let today = new Date();
-    return today.toISOString()
-}
+
+
+//Modal 初始化
 let AddOrEditItemModal = document.getElementById('AddOrEditItemModal')
 AddOrEditItemModal.addEventListener('show.bs.modal', (event)=>{
+    document.getElementById('Input2').value = getLocalTime()
     let button = event.relatedTarget
-    let recipient = button.getAttribute('data-bs-whatever')
-    let buttonId = button.getAttribute('id')
-    console.log(recipient + ":" + buttonId)
+    if(button.getAttribute('id') === null){
+        document.getElementById('ModalTitle').innerText = '新增項目'
+        document.getElementById('AddOrEditItemButton').innerText = '新增'
+        document.getElementById('AddOrEditItemButton').addEventListener('click', additem, { once: true })
+        
+        return
+    }
+    let Id = button.getAttribute('id').split('_')[1]
+    document.getElementById('ModalTitle').innerText = '修改項目'
+    document.getElementById('AddOrEditItemButton').innerText = '修改'
+    function editfuc(){
+        edititem(Id)
+    }
+    document.getElementById('AddOrEditItemButton').addEventListener('click', editfuc)
+    AddOrEditItemModal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('AddOrEditItemButton').removeEventListener('click', editfuc)
+    },{once: true})
 })
+
+
+function getLocalTime(UTCtime = (new Date).toISOString(), format = "yyyy-MM-dd"){
+    return luxon.DateTime.fromISO(UTCtime, {zone: 'Asia/Taipei'}).toFormat(format)
+}
